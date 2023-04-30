@@ -1,7 +1,7 @@
 # Compiler and flags
 CC            := gcc # -Xanalyzer
-CFLAGS        := -Wall -Werror -Wextra -std=c99 -fsanitize=address -g
-CRELFLAGS     := -Wall -Werror -Wextra -std=c99 -O2
+CFLAGS        := -Wall -Wextra -std=c99 -fsanitize=address -g
+CRELFLAGS     := -Wall -Wextra -std=c99 -O2
 
 # Directories
 INC_DIR       := include
