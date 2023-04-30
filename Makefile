@@ -1,7 +1,7 @@
 # Compiler and flags
 CC            := gcc # -Xanalyzer
-CFLAGS        := -Wall -Wextra -std=c99 -fsanitize=address -g
-CRELFLAGS     := -Wall -Wextra -std=c99 -O2
+CFLAGS        := -Wall -std=c99 -fsanitize=address -g
+CRELFLAGS     := -Wall -std=c99 -O2
 
 # Directories
 INC_DIR       := include
@@ -38,10 +38,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 # Testing
-test/test: $(TARGET)
+test/test.out: $(TARGET)
 	$(CC) $(CFLAGS) -I$(INC_DIR) -o test/test.out test/test.c $(TARGET_OBJ) # -L$(BIN_DIR) -lexception
 
-test: test/test
+test: test/test.out
 	@ASAN_OPTIONS=detect_leaks=1 ./test/test.out
 
 # Supporting code
@@ -55,5 +55,6 @@ clean:
 	rm -rf $(BIN_DIR)
 	rm -rf $(LIB_DIR)
 	rm -rf $(OBJ_DIR)
+	rm -rf test/test.out
 
 # Library specific code
