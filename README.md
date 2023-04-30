@@ -21,3 +21,5 @@ int main() {
     }
 }
 ```
+
+Caught exceptions are messages by the `throw` macro.
