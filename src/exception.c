@@ -28,5 +28,4 @@ _exception_t *_exception_stack_pop(void) {
     return ex;
 }
 
-
 char *_ex_throw_validate_args(const char* fmt, ...) { return (char*) fmt; }
